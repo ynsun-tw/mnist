@@ -1,0 +1,22 @@
+{
+  "exclude": ["./node_modules/*"],
+  "include": ["src/**/*.ts"],
+  "compilerOptions": {
+    "target": "es5",
+    "lib": ["dom", "es2018", "esnext.asynciterable", "es2015.iterable"],
+    "types": ["node"],
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": false,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "baseUrl": "./",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowJs": true,
+    "isolatedModules": false,
+    "importHelpers": true
+  }
+}
