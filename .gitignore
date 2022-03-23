@@ -4,3 +4,4 @@ node_modules
 bundle.js
 yarn-error.log
 .DS_Store
+bundle.js.map

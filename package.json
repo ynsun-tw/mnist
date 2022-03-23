@@ -1,13 +1,12 @@
 {
   "license": "MIT",
   "scripts": {
-    "build": "rollup --config rollup.config.ts",
+    "build": "rollup --config rollup.config.ts -w",
     "start": "web-dev-server --config web-dev-server.config.js"
   },
   "dependencies": {
     "@tensorflow/tfjs": "^3.14.0",
-    "@tensorflow/tfjs-vis": "^1.5.1",
-    "typescript": "^4.6.2"
+    "@tensorflow/tfjs-vis": "^1.5.1"
   },
   "devDependencies": {
     "@rollup/plugin-commonjs": "^21.0.2",
@@ -20,6 +19,7 @@
     "prettier": "^2.6.0",
     "rollup": "^2.70.1",
     "rollup-plugin-livereload": "^2.0.5",
-    "tslib": "^2.3.1"
+    "tslib": "^2.3.1",
+    "typescript": "^4.6.2"
   }
 }

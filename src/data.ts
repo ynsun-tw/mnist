@@ -8,14 +8,13 @@ const NUM_DATASET_ELEMENTS = 65000
 
 const NUM_TRAIN_ELEMENTS = 55000
 const NUM_TEST_ELEMENTS = NUM_DATASET_ELEMENTS - NUM_TRAIN_ELEMENTS
+const MNIST_IMAGES_SPRITE_PATH = new URL('../dataset/images.png', import.meta.url).href
+const MNIST_LABELS_PATH = new URL('../dataset/labels', import.meta.url).href
 
-// const MNIST_IMAGES_SPRITE_PATH = new URL('../dataset/images.png', import.meta.url).href
-// const MNIST_LABELS_PATH = new URL('../dataset/labels', import.meta.url).href
-
-const MNIST_IMAGES_SPRITE_PATH =
-  'https://storage.googleapis.com/learnjs-data/model-builder/mnist_images.png'
-const MNIST_LABELS_PATH =
-  'https://storage.googleapis.com/learnjs-data/model-builder/mnist_labels_uint8'
+// const MNIST_IMAGES_SPRITE_PATH =
+//   'https://storage.googleapis.com/learnjs-data/model-builder/mnist_images.png'
+// const MNIST_LABELS_PATH =
+//   'https://storage.googleapis.com/learnjs-data/model-builder/mnist_labels_uint8'
 
 export class MnistData {
   datasetLabels: Uint8Array = new Uint8Array([])
@@ -98,8 +97,8 @@ export class MnistData {
       ]
     )
     const labels = tensor2d(this.trainLabels, [this.trainLabels.length / NUM_CLASSES, NUM_CLASSES])
-    console.log('training data', xs.print())
-    console.log('training label', labels.print())
+    console.log('training label')
+    labels.print()
     return { xs, labels }
   }
 
