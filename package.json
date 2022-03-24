@@ -1,8 +1,7 @@
 {
   "license": "MIT",
   "scripts": {
-    "build": "rollup --config rollup.config.ts -w",
-    "start": "web-dev-server --config web-dev-server.config.js"
+    "dev": "rollup --config rollup.config.ts -w"
   },
   "dependencies": {
     "@tensorflow/tfjs": "^3.14.0",
@@ -14,11 +13,11 @@
     "@rollup/plugin-node-resolve": "^13.1.3",
     "@rollup/plugin-replace": "^4.0.0",
     "@rollup/plugin-typescript": "^8.3.1",
-    "@web/dev-server": "^0.1.30",
     "@web/rollup-plugin-import-meta-assets": "^1.0.7",
     "prettier": "^2.6.0",
     "rollup": "^2.70.1",
     "rollup-plugin-livereload": "^2.0.5",
+    "rollup-plugin-serve": "^1.1.0",
     "tslib": "^2.3.1",
     "typescript": "^4.6.2"
   }

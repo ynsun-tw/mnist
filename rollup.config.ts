@@ -3,6 +3,8 @@ import json from '@rollup/plugin-json'
 import commonjs from '@rollup/plugin-commonjs'
 import nodeResolve from '@rollup/plugin-node-resolve'
 import { importMetaAssets } from '@web/rollup-plugin-import-meta-assets'
+import serve from 'rollup-plugin-serve'
+import livereload from 'rollup-plugin-livereload'
 
 export default {
   input: 'src/main.ts',
@@ -20,6 +22,8 @@ export default {
     nodeResolve({ browser: true, preferBuiltins: true }),
     json(),
     typescript(),
-    importMetaAssets()
+    importMetaAssets(),
+    livereload(),
+    serve({ port: 8080 })
   ]
 }
