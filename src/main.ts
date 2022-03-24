@@ -30,7 +30,7 @@ ui.setTrainButtonCallback(async () => {
   const data = await load()
 
   ui.logStatus('Creating model...')
-  const model = createDenseModel()
+  const model = createModel()
   model.summary()
 
   ui.logStatus('Starting model training...')

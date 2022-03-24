@@ -1,4 +1,5 @@
 import { tensor4d, tensor2d, pad } from '@tensorflow/tfjs'
+import { Tensor4D } from '@tensorflow/tfjs-core/dist/tensor'
 
 export const IMAGE_H = 28
 export const IMAGE_W = 28
@@ -78,50 +79,17 @@ export class MnistData {
     this.testLabels = this.datasetLabels.slice(NUM_CLASSES * NUM_TRAIN_ELEMENTS)
   }
 
-  /**
-   * Get all training data as a data tensor and a labels tensor.
-   *
-   * @returns
-   *   xs: The data tensor, of shape `[numTrainExamples, 28, 28, 1]`.
-   *   labels: The one-hot encoded labels tensor, of shape
-   *     `[numTrainExamples, 10]`.
-   */
   getTrainData() {
-    const xs = pad(
-      tensor4d(this.trainImages, [this.trainImages.length / IMAGE_SIZE, IMAGE_H, IMAGE_W, 1]),
-      [
-        [0, 0],
-        [2, 2],
-        [2, 2],
-        [0, 0]
-      ]
+    const xs = expandImageTo32(
+      tensor4d(this.trainImages, [this.trainImages.length / IMAGE_SIZE, IMAGE_H, IMAGE_W, 1])
     )
     const labels = tensor2d(this.trainLabels, [this.trainLabels.length / NUM_CLASSES, NUM_CLASSES])
-    console.log('training label')
-    labels.print()
     return { xs, labels }
   }
 
-  /**
-   * Get all test data as a data tensor and a labels tensor.
-   *
-   * @param {number} numExamples Optional number of examples to get. If not
-   *     provided,
-   *   all test examples will be returned.
-   * @returns
-   *   xs: The data tensor, of shape `[numTestExamples, 28, 28, 1]`.
-   *   labels: The one-hot encoded labels tensor, of shape
-   *     `[numTestExamples, 10]`.
-   */
   getTestData(numExamples) {
-    let xs = pad(
-      tensor4d(this.testImages, [this.testImages.length / IMAGE_SIZE, IMAGE_H, IMAGE_W, 1]),
-      [
-        [0, 0],
-        [2, 2],
-        [2, 2],
-        [0, 0]
-      ]
+    let xs = expandImageTo32(
+      tensor4d(this.testImages, [this.testImages.length / IMAGE_SIZE, IMAGE_H, IMAGE_W, 1])
     )
 
     let labels = tensor2d(this.testLabels, [this.testLabels.length / NUM_CLASSES, NUM_CLASSES])
@@ -132,4 +100,13 @@ export class MnistData {
     }
     return { xs, labels }
   }
+}
+
+function expandImageTo32(tensor: Tensor4D) {
+  return pad(tensor, [
+    [0, 0],
+    [2, 2],
+    [2, 2],
+    [0, 0]
+  ])
 }

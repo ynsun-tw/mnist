@@ -3,10 +3,9 @@ import { nextFrame } from '@tensorflow/tfjs'
 
 export async function train(data, model, onIteration) {
   ui.logStatus('Training model...')
-  const optimizer = 'adam'
 
   model.compile({
-    optimizer,
+    optimizer: 'adam',
     loss: 'categoricalCrossentropy',
     metrics: ['accuracy']
   })
