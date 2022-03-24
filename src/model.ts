@@ -1,4 +1,5 @@
 import { layers, sequential } from '@tensorflow/tfjs'
+import { IMAGE_H, IMAGE_W } from './data'
 
 export function createModel() {
   const model = sequential()
@@ -55,5 +56,13 @@ export function createModel() {
   model.add(layers.dense({ units: 10, activation: 'softmax' }))
 
   model.summary()
+  return model
+}
+
+export function createDenseModel() {
+  const model = sequential()
+  model.add(layers.flatten({ inputShape: [32, 32, 1] }))
+  model.add(layers.dense({ units: 42, activation: 'relu' }))
+  model.add(layers.dense({ units: 10, activation: 'softmax' }))
   return model
 }
