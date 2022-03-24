@@ -1,8 +1,6 @@
 import { tidy } from '@tensorflow/tfjs'
 import { MnistData } from './data'
 import * as ui from './ui'
-import { createDenseModel, createModel } from './model'
-import { train } from './train'
 
 async function showPredictions(data, model) {
   const testExamples = 100
@@ -28,11 +26,5 @@ async function load() {
 ui.setTrainButtonCallback(async () => {
   ui.logStatus('Loading MNIST data...')
   const data = await load()
-
-  ui.logStatus('Creating model...')
-  const model = createModel()
-  model.summary()
-
-  ui.logStatus('Starting model training...')
-  await train(data, model, () => showPredictions(data, model))
+  ui.logStatus('Loading data Successfully')
 })

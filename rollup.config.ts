@@ -5,7 +5,6 @@ import nodeResolve from '@rollup/plugin-node-resolve'
 import { importMetaAssets } from '@web/rollup-plugin-import-meta-assets'
 import serve from 'rollup-plugin-serve'
 import livereload from 'rollup-plugin-livereload'
-import injectProcessEnv from 'rollup-plugin-inject-process-env'
 
 export default {
   input: 'src/main.ts',
@@ -20,9 +19,6 @@ export default {
   },
   plugins: [
     json(),
-    injectProcessEnv({
-      NODE_ENV: 'production'
-    }),
     commonjs(),
     nodeResolve({ browser: true, preferBuiltins: true }),
     typescript(),
