@@ -15,6 +15,8 @@ This package is served by [rollup](https://rollupjs.org/guide/en/), config is in
 
 #### LeNet
 
+About [LeNet](https://en.wikipedia.org/wiki/LeNet#:~:text=In%20general%2C%20LeNet%20refers%20to,in%20large%2Dscale%20image%20processing.)
+
 Use this [pad](https://js.tensorflow.org/api/latest/?hl=sk#pad) function expand image to 32 * 32
 example: 
 ```
