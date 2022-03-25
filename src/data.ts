@@ -95,7 +95,7 @@ export class MnistData {
     let labels = tensor2d(this.testLabels, [this.testLabels.length / NUM_CLASSES, NUM_CLASSES])
 
     if (numExamples != null) {
-      xs = xs.slice([0, 0, 0, 0], [numExamples, 32, 32, 1])
+      xs = xs.slice([0, 0, 0, 0], [numExamples, 28, 28, 1])
       labels = labels.slice([0, 0], [numExamples, NUM_CLASSES])
     }
     return { xs, labels }

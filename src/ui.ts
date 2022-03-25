@@ -84,7 +84,7 @@ export function plotAccuracy(batch, accuracy, set) {
 }
 
 export function draw(image, canvas) {
-  const [width, height] = [32, 32]
+  const [width, height] = [28, 28]
   canvas.width = width
   canvas.height = height
   const ctx = canvas.getContext('2d')
