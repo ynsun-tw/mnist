@@ -13,3 +13,18 @@ This package is served by [rollup](https://rollupjs.org/guide/en/), config is in
 
 ```yarn dev```
 
+#### LeNet
+
+Use this [pad](https://js.tensorflow.org/api/latest/?hl=sk#pad) function expand image to 32 * 32
+example: 
+```
+function expandImageTo32(tensor: Tensor4D) {
+  return pad(tensor, [
+    [0, 0],
+    [2, 2],
+    [2, 2],
+    [0, 0]
+  ])
+}
+```
+
